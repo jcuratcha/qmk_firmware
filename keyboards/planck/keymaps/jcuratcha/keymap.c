@@ -230,6 +230,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
       break;
+    case NAVIGATE:
+      if (record->event.pressed) {
+        layer_on(_NAVIGATE);
+      } else {
+        layer_off(_NAVIGATE);
+      }
+      return false;
+      break;
     case SYMBOL:
       if (record->event.pressed) {
         layer_on(_SYMBOL);
