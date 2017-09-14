@@ -38,12 +38,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | Ctrl | GUI  | Alt  | Func | Sym  |    Space    | No   | Left | Down |  Up  |Right |
  * `-----------------------------------------------------------------------------------'
+ * NOTE: LShift and RShift are Shift when held, '(' and ')' respectively when held (Space Cadet)
  */
 [_QWERTY] = {
-  {KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC},
-  {KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT},
-  {KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT },
-  {BACKLIT, KC_LCTL, KC_LALT, KC_LGUI, SYMBOL,  KC_SPC,  KC_SPC,  NUMBER,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT}
+  {KC_TAB,   KC_Q,    KC_W,    KC_E,     KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC},
+  {NAVIGATE, KC_A,    KC_S,    KC_D,     KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_ENT },
+  {KC_LSPO,  KC_Z,    KC_X,    KC_C,     KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSPC},
+  {KC_LCTL,  KC_LGUI, KC_LALT, FUNCTION, SYMBOL,  KC_SPC,  KC_SPC,  NUMBER,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT}
 },
 
 /* Colemak
@@ -58,10 +59,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_COLEMAK] = {
-  {KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_BSPC},
-  {KC_ESC,  KC_A,    KC_R,    KC_S,    KC_T,    KC_D,    KC_H,    KC_N,    KC_E,    KC_I,    KC_O,    KC_QUOT},
-  {KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT },
-  {BACKLIT, KC_LCTL, KC_LALT, KC_LGUI, SYMBOL,  KC_SPC,  KC_SPC,  NUMBER,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT}
+  {KC_TAB,   KC_Q,    KC_W,    KC_F,     KC_P,    KC_G,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_BSPC},
+  {NAVIGATE, KC_A,    KC_R,    KC_S,     KC_T,    KC_D,    KC_H,    KC_N,    KC_E,    KC_I,    KC_O,    KC_ENT },
+  {KC_LSPO,  KC_Z,    KC_X,    KC_C,     KC_V,    KC_B,    KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSPC},
+  {KC_LCTL,  KC_LGUI, KC_LALT, FUNCTION, SYMBOL,  KC_SPC,  KC_SPC,  NUMBER,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT}
 },
 
 /* Symbol
@@ -110,12 +111,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |      |      |             |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
+ * NOTE: Pressing Ctrl, Alt or GUI will result in the Right-side variant being invoked
+ *  (on any other layer, the left side modifiers are invoked)
  */
 [_FUNCTION] = {
   {KC_ESC,  KC_CAPS, KC_NLCK, BACKLIT, KC_PSCR, KC_SLCK, KC_PAUS, _______, _______, _______, KC_DEL,  _______},
   {_______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______, _______, _______, _______, _______},
   {_______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   _______, _______, KC_VOLD, KC_VOLU, _______},
-  {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
+  {KC_RCTL, KC_RGUI, KC_RALT, _______, _______, _______, _______, _______, _______, _______, _______, _______}
 },
 
 /* Navigate
