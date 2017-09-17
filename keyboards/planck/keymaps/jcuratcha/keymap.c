@@ -37,7 +37,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |LShift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |RShift|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Ctrl | GUI  | Alt  | Func | Sym  |    Space    | No   | Left | Down |  Up  |Right |
+ * | Ctrl | GUI  | Alt  | Func | Sym  |    Space    | No   | Alt  | Nav  | GUI  | Ctrl |
  * `-----------------------------------------------------------------------------------'
  * NOTE: LShift and RShift are Shift when held, '(' and ')' respectively when held (Space Cadet)
  */
@@ -106,9 +106,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Navigate
  * ,-----------------------------------------------------------------------------------.
- * | Esc  |      |      |      |      |      | PgUp | Home | Up   | End  | Del  |      |
+ * | Esc  | PgUp | Home | Up   | End  |      | PgUp | Home | Up   | End  | Del  |      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      |      |      |      |      |      | PgDn | Left | Down | Right| Ins  |      |
+ * |      | PgDn | Left | Down | Right|      | PgDn | Left | Down | Right| Ins  |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |      |      |      |      |      |      |      |      | Vol- | Vol+ |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
