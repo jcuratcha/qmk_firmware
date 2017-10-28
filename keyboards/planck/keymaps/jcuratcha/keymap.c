@@ -5,6 +5,7 @@ extern keymap_config_t keymap_config;
 
 enum planck_layers {
   _QWERTY,
+  _COLEMAK,
   _SYMBOL,
   _NUMBER,
   _FUNCTION,
@@ -15,6 +16,7 @@ enum planck_layers {
 
 enum planck_keycodes {
   QWERTY = SAFE_RANGE,
+  COLEMAK,
   SYMBOL,
   NUMBER,
   FUNCTION,
@@ -33,13 +35,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |LShift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |RShift|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Ctrl | GUI  | Alt  | Func | Sym  |    Space    | No   | Nav  | Enter| Alt  | Ctrl |
+ * | Ctrl | GUI  | Alt  | Func | Sym  |    Space    | No   | Nav  | Alt  | Ctrl | Enter|
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = {
   {KC_TAB,   KC_Q,    KC_W,    KC_E,     KC_R,   KC_T,   KC_Y,   KC_U,   KC_I,     KC_O,    KC_P,    KC_BSPC},
   {NAVIGATE, KC_A,    KC_S,    KC_D,     KC_F,   KC_G,   KC_H,   KC_J,   KC_K,     KC_L,    KC_SCLN, KC_QUOT},
   {KC_LSFT,  KC_Z,    KC_X,    KC_C,     KC_V,   KC_B,   KC_N,   KC_M,   KC_COMM,  KC_DOT,  KC_SLSH, KC_RSFT},
+  {KC_LCTL,  KC_LGUI, KC_LALT, FUNCTION, SYMBOL, KC_SPC, KC_SPC, NUMBER, NAVIGATE, KC_RCTL, KC_RALT, KC_ENT}
+},
+
+/* Colemak
+ * ,-----------------------------------------------------------------------------------.
+ * | Tab  |   Q  |   W  |   F  |   P  |   G  |   J  |   L  |   U  |   Y  |   ;  | Bksp |
+ * |------+------+------+------+------+-------------+------+------+------+------+------|
+ * | Esc  |   A  |   R  |   S  |   T  |   D  |   H  |   N  |   E  |   I  |   O  |  "   |
+ * |------+------+------+------+------+------|------+------+------+------+------+------|
+ * |LShift|   Z  |   X  |   C  |   V  |   B  |   K  |   M  |   ,  |   .  |   /  |RShift|
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * | Ctrl | GUI  | Alt  | Func | Sym  |    Space    | No   | Nav  | Alt  | Ctrl | Enter|
+ * `-----------------------------------------------------------------------------------'
+ */
+[_COLEMAK] = {
+  {KC_TAB,   KC_Q,    KC_W,    KC_F,     KC_P,   KC_G,   KC_J,   KC_L,   KC_U,     KC_Y,    KC_SCLN, KC_BSPC},
+  {NAVIGATE, KC_A,    KC_R,    KC_S,     KC_T,   KC_D,   KC_H,   KC_N,   KC_E,     KC_I,    KC_O,    KC_QUOT},
+  {KC_LSFT,  KC_Z,    KC_X,    KC_C,     KC_V,   KC_B,   KC_K,   KC_M,   KC_COMM,  KC_DOT,  KC_SLSH, KC_RSFT},
   {KC_LCTL,  KC_LGUI, KC_LALT, FUNCTION, SYMBOL, KC_SPC, KC_SPC, NUMBER, NAVIGATE, KC_RCTL, KC_RALT, KC_ENT}
 },
 
@@ -119,7 +139,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |      | Reset|      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      |      |      |Aud on|Audoff|AGnorm|AGswap|Qwerty|Mouse |      |      |      |
+ * |      |      |      |Aud on|Audoff|AGnorm|AGswap|Qwerty|Colemk|Mouse |      |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |Voice-|Voice+|Mus on|Musoff|MIDIon|MIDIof|      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -128,7 +148,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_ADJUST] = {
   {XXXXXXX, RESET,   DEBUG,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX},
-  {XXXXXXX, XXXXXXX, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  MOUSE,   XXXXXXX, XXXXXXX, XXXXXXX},
+  {XXXXXXX, XXXXXXX, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  COLEMAK, MOUSE,   XXXXXXX, XXXXXXX},
   {XXXXXXX, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX},
   {XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX}
 },
@@ -137,7 +157,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |      |      |      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      | M Lf | M Dn | M Up | M Ri |      |      | MB 1 | MB 2 | MB 3 |      |Qwerty|
+ * |      | M Lf | M Dn | M Up | M Ri |      |      | MB 1 | MB 2 | MB 3 |      |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      | MW L | MW D | MW U | MW R |      |      | Spd0 | Spd1 | Spd2 |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -146,7 +166,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_MOUSE] = {
   {XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX},
-  {XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_U,  KC_MS_R, XXXXXXX, XXXXXXX, KC_BTN1, KC_BTN2, KC_BTN3, XXXXXXX, QWERTY },
+  {XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_U,  KC_MS_R, XXXXXXX, XXXXXXX, KC_BTN1, KC_BTN2, KC_BTN3, XXXXXXX, XXXXXXX },
   {XXXXXXX, KC_WH_L, KC_WH_D, KC_WH_U,  KC_WH_R, XXXXXXX, XXXXXXX, KC_ACL0, KC_ACL1, KC_ACL2, XXXXXXX, XXXXXXX},
   {KC_LCTL, KC_LGUI, KC_LALT, FUNCTION, SYMBOL,  KC_SPC,  KC_SPC,  NUMBER,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT}
 }
@@ -157,6 +177,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case QWERTY:
       if (record->event.pressed) {
         set_single_persistent_default_layer(_QWERTY);
+      }
+      return false;
+      break;
+    case COLEMAK:
+      if (record->event.pressed) {
+        set_single_persistent_default_layer(_COLEMAK);
       }
       return false;
       break;
