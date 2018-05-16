@@ -33,11 +33,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |LShift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |RShift|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
-<<<<<<< HEAD
  * | Ctrl | GUI  | Alt  | Func | Sym  |    Space    | No   | Nav  | Ctrl | Alt  | Enter|
-=======
- * | Ctrl | GUI  | Alt  | Func | Sym  |    Space    | No   | Nav  | App  | Ctrl | Enter|
->>>>>>> fc5c7b50b11a04de9c1acd771814791d41378ecd
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = {
