@@ -10,7 +10,6 @@ enum planck_layers {
   _NUMBER,
   _FUNCTION,
   _NAVIGATE,
-  _MOUSE,
   _ADJUST
 };
 
@@ -21,7 +20,6 @@ enum planck_keycodes {
   NUMBER,
   FUNCTION,
   NAVIGATE,
-  MOUSE,
   BACKLIT
 };
 
@@ -49,7 +47,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * | Tab  |   Q  |   W  |   F  |   P  |   G  |   J  |   L  |   U  |   Y  |   ;  | Bksp |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | Esc  |   A  |   R  |   S  |   T  |   D  |   H  |   N  |   E  |   I  |   O  |  "   |
+ * | Esc  |   A  |   R  |   S  |   T  |   D  |   H  |   N  |   E  |   I  |   O  |  '   |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |LShift|   Z  |   X  |   C  |   V  |   B  |   K  |   M  |   ,  |   .  |   /  |RShift|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -139,7 +137,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |      | Reset|      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      |      |      |Aud on|Audoff|AGnorm|AGswap|Qwerty|Colemk|Mouse |      |      |
+ * |      |      |      |Aud on|Audoff|AGnorm|AGswap|Qwerty|Colemk|      |      |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |Voice-|Voice+|Mus on|Musoff|MIDIon|MIDIof|      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -147,28 +145,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_ADJUST] = {
-  {XXXXXXX, RESET,   DEBUG,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX},
-  {XXXXXXX, XXXXXXX, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  COLEMAK, MOUSE,   XXXXXXX, XXXXXXX},
+  {XXXXXXX, RESET,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX},
+  {XXXXXXX, XXXXXXX, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  COLEMAK, XXXXXXX, XXXXXXX, XXXXXXX},
   {XXXXXXX, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX},
   {XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX}
-},
-
-/* Mouse keys
- * ,-----------------------------------------------------------------------------------.
- * |      |      |      |      |      |      |      |      |      |      |      |      |
- * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      | M Lf | M Dn | M Up | M Ri |      |      | MB 1 | MB 2 | MB 3 |      |      |
- * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      | MW L | MW D | MW U | MW R |      |      | Spd0 | Spd1 | Spd2 |      |      |
- * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |  Sym |             |   No |      |      |      |      |
- * `-----------------------------------------------------------------------------------'
- */
-[_MOUSE] = {
-  {XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX},
-  {XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_U,  KC_MS_R, XXXXXXX, XXXXXXX, KC_BTN1, KC_BTN2, KC_BTN3, XXXXXXX, XXXXXXX },
-  {XXXXXXX, KC_WH_L, KC_WH_D, KC_WH_U,  KC_WH_R, XXXXXXX, XXXXXXX, KC_ACL0, KC_ACL1, KC_ACL2, XXXXXXX, XXXXXXX},
-  {KC_LCTL, KC_LGUI, KC_LALT, FUNCTION, SYMBOL,  KC_SPC,  KC_SPC,  NUMBER,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT}
 }
 };
 
@@ -183,12 +163,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case COLEMAK:
       if (record->event.pressed) {
         set_single_persistent_default_layer(_COLEMAK);
-      }
-      return false;
-      break;
-    case MOUSE:
-      if (record->event.pressed) {
-        set_single_persistent_default_layer(_MOUSE);
       }
       return false;
       break;
