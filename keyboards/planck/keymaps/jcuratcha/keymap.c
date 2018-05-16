@@ -33,14 +33,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |LShift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |RShift|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
+<<<<<<< HEAD
  * | Ctrl | GUI  | Alt  | Func | Sym  |    Space    | No   | Nav  | Ctrl | Alt  | Enter|
+=======
+ * | Ctrl | GUI  | Alt  | Func | Sym  |    Space    | No   | Nav  | App  | Ctrl | Enter|
+>>>>>>> fc5c7b50b11a04de9c1acd771814791d41378ecd
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = {
-  {KC_TAB,   KC_Q,    KC_W,    KC_E,     KC_R,   KC_T,   KC_Y,   KC_U,   KC_I,     KC_O,    KC_P,    KC_BSPC},
-  {NAVIGATE, KC_A,    KC_S,    KC_D,     KC_F,   KC_G,   KC_H,   KC_J,   KC_K,     KC_L,    KC_SCLN, KC_QUOT},
-  {KC_LSFT,  KC_Z,    KC_X,    KC_C,     KC_V,   KC_B,   KC_N,   KC_M,   KC_COMM,  KC_DOT,  KC_SLSH, KC_RSFT},
-  {KC_LCTL,  KC_LGUI, KC_LALT, FUNCTION, SYMBOL, KC_SPC, KC_SPC, NUMBER, NAVIGATE, KC_RCTL, KC_RALT, KC_ENT}
+  {KC_TAB,   KC_Q,    KC_W,    KC_E,     KC_R,   KC_T,   KC_Y,   KC_U,   KC_I,     KC_O,   KC_P,    KC_BSPC},
+  {NAVIGATE, KC_A,    KC_S,    KC_D,     KC_F,   KC_G,   KC_H,   KC_J,   KC_K,     KC_L,   KC_SCLN, KC_QUOT},
+  {KC_LSFT,  KC_Z,    KC_X,    KC_C,     KC_V,   KC_B,   KC_N,   KC_M,   KC_COMM,  KC_DOT, KC_SLSH, KC_RSFT},
+  {KC_LCTL,  KC_LGUI, KC_LALT, FUNCTION, SYMBOL, KC_SPC, KC_SPC, NUMBER, NAVIGATE, KC_APP, KC_RCTL, KC_ENT}
 },
 
 /* Colemak
