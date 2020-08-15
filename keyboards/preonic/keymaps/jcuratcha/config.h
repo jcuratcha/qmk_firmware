@@ -4,8 +4,10 @@
 #include "../../config.h"
 
 #ifdef AUDIO_ENABLE
-    #define STARTUP_SONG SONG(PLANCK_SOUND)
+    // #define STARTUP_SONG SONG(NOCTURNE_OP_9_NO_1)
+    // #define STARTUP_SONG SONG(PLANCK_SOUND)
     // #define STARTUP_SONG SONG(NO_SOUND)
+    #define STARTUP_SONG SONG(PREONIC_SOUND)
 
     #define DEFAULT_LAYER_SONGS { SONG(QWERTY_SOUND), \
                                   SONG(COLEMAK_SOUND), \
